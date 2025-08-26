@@ -1,0 +1,8 @@
+2025-08-23 18:59:20 [ERROR]:  Failed to connect to MongoDB Atlas:
+2025-08-23 18:59:21 [ERROR]:  Failed to connect to MongoDB Atlas:
+2025-08-23 19:04:48 [ERROR]: Error creating session: Cannot destructure property 'userId' of 'req.body' as it is undefined.
+2025-08-23 19:05:51 [ERROR]: Error creating session: Cannot destructure property 'userId' of 'req.body' as it is undefined.
+2025-08-23 20:17:59 [ERROR]: Error fetching messages for session_877c21d8-b9ef-4c24-886a-6f7c8a357097: Cannot find module '../utils/socketHandlers'
+Require stack:
+2025-08-26 11:30:55 [ERROR]: Error creating session: Cannot destructure property 'userId' of 'req.body' as it is undefined. Cannot destructure property 'userId' of 'req.body' as it is undefined.
+2025-08-26 11:39:46 [ERROR]: Error creating session: Cannot destructure property 'userId' of 'req.body' as it is undefined. Cannot destructure property 'userId' of 'req.body' as it is undefined.
