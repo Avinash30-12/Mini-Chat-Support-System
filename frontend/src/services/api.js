@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE ='http://localhost:3002';
+const API_BASE ='https://mini-chat-support-system.onrender.com';
 
 const api = axios.create({
   baseURL: API_BASE,
