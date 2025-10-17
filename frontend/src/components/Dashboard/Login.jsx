@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false); // 👈 NEW state
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    setLoading(true); // 👈 Start loading
+    setLoading(true);
 
     try {
       const response = await axios.post('http://localhost:3002/auth/login', {
@@ -33,7 +33,7 @@ const Login = () => {
     } catch (error) {
       setError(error.response?.data?.message || 'Login failed. Please try again.');
     } finally {
-      setLoading(false); // 👈 Stop loading
+      setLoading(false);
     }
   };
 
@@ -53,7 +53,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
               style={styles.input}
-              disabled={loading} // 👈 disable while loading
+              disabled={loading}
             />
           </div>
 
@@ -65,20 +65,20 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
               style={styles.input}
-              disabled={loading} // 👈 disable while loading
+              disabled={loading}
             />
           </div>
 
           <button type="submit" style={styles.button} disabled={loading}>
-            {loading ? 'Logging in...' : 'Login'} {/* 👈 show loading text */}
+            {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
 
         <p style={styles.signupText}>
           Don't have an account?{' '}
-          <a href="/signup" style={styles.link}>
+          <Link to="/signup" style={styles.link}>
             Sign up here
-          </a>
+          </Link>
         </p>
       </div>
     </div>
@@ -86,59 +86,15 @@ const Login = () => {
 };
 
 const styles = {
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    backgroundColor: '#f5f5f5',
-  },
-  formBox: {
-    background: 'white',
-    padding: '2rem',
-    borderRadius: '8px',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-    width: '300px',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  inputGroup: {
-    marginBottom: '1rem',
-  },
-  input: {
-    width: '100%',
-    padding: '0.5rem',
-    border: '1px solid #ddd',
-    borderRadius: '4px',
-    marginTop: '0.25rem',
-  },
-  button: {
-    padding: '0.75rem',
-    background: '#007bff',
-    color: 'white',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    opacity: '1',
-    transition: 'opacity 0.2s ease',
-  },
-  error: {
-    color: 'red',
-    background: '#ffe6e6',
-    padding: '0.5rem',
-    borderRadius: '4px',
-    marginBottom: '1rem',
-  },
-  signupText: {
-    textAlign: 'center',
-    marginTop: '1rem',
-  },
-  link: {
-    color: '#007bff',
-    textDecoration: 'none',
-  },
+  container: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#f5f5f5' },
+  formBox: { background: 'white', padding: '2rem', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.1)', width: '300px' },
+  form: { display: 'flex', flexDirection: 'column' },
+  inputGroup: { marginBottom: '1rem' },
+  input: { width: '100%', padding: '0.5rem', border: '1px solid #ddd', borderRadius: '4px', marginTop: '0.25rem' },
+  button: { padding: '0.75rem', background: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' },
+  error: { color: 'red', background: '#ffe6e6', padding: '0.5rem', borderRadius: '4px', marginBottom: '1rem' },
+  signupText: { textAlign: 'center', marginTop: '1rem' },
+  link: { color: '#007bff', textDecoration: 'none' },
 };
 
 export default Login;
