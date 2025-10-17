@@ -16,7 +16,7 @@ const Signup = () => {
     setLoading(true); // 👈 Start loading
 
     try {
-      const response = await axios.post('http://localhost:3002/auth/signup', {
+      const response = await axios.post('https://mini-chat-support-system.onrender.com/auth/signup', {
         username,
         email,
         password
