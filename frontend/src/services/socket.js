@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 let socket = null;
 
 export const connectSocket = () => {
-  if (!socket) socket = io('http://localhost:3002');
+  if (!socket) socket = io('https://mini-chat-support-system.onrender.com');
   return socket;
 };
 
